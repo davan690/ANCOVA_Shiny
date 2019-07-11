@@ -10,15 +10,11 @@ library(markdown)
 library(stringr)
 library(shiny)
 
-
-
 uu_color <- " #ffcd00"
 
 
 
 ##################################################################
-
-
 
 ui <- dashboardPage(
   skin = "black",
