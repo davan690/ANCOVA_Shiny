@@ -34,7 +34,7 @@ server <- function(input, output, session) {
   blueish_5 <- 'rgba(44, 127, 184, .3)'
 
 
-
+####### ANALYSIS SCRIPT HERE##################
   # ANOVA DATA
   aov_dat <- data.frame(cbind(Condition = rep(c("Treatment", "Control"), 2),
                           Gender = rep(c("Female", "Male"), each = 2)),
@@ -44,6 +44,9 @@ server <- function(input, output, session) {
 
 
   # ANCOVA DATA
+  # this is generating random dataset??...
+  # change this to ticks dataset
+  
   n_ancova   <- 100
   anco_endpt <- c(1, 2, 2, 1.5)
   ancoef     <- c(1, -.5)
@@ -53,7 +56,20 @@ server <- function(input, output, session) {
   anco_dat_x_2     <- as.numeric(scale(rnorm(n_ancova/2)))
   anco_dat_resid_1 <- as.numeric(scale(rnorm(n_ancova/2)))
   anco_dat_resid_2 <- as.numeric(scale(rnorm(n_ancova/2)))
+  
+  # restructuring for dynamic ecology tests
+  
 
+  # n_ancova   <- 100
+  # anco_endpt <- c(1, 2, 2, 1.5)
+  # ancoef     <- c(1, -.5)
+  # 
+  # set.seed(1321)
+  # anco_dat_x_1     <- as.numeric(scale(rnorm(n_ancova/2)))
+  # anco_dat_x_2     <- as.numeric(scale(rnorm(n_ancova/2)))
+  # anco_dat_resid_1 <- as.numeric(scale(rnorm(n_ancova/2)))
+  # anco_dat_resid_2 <- as.numeric(scale(rnorm(n_ancova/2)))
+  
   anco_dat_resid_1 <- resid(lm(y~x, data = data.frame(x = anco_dat_x_1,
                                                       y = anco_dat_resid_1)))
   anco_dat_resid_2 <- resid(lm(y~x, data = data.frame(x = anco_dat_x_2,
@@ -108,8 +124,6 @@ server <- function(input, output, session) {
     print(coef_mat)
     out
   }
-
-
 
   output$anova_plot <- highcharter::renderHighchart({
 
