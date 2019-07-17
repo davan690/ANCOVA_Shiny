@@ -9,6 +9,7 @@ library(pander)
 library(markdown)
 library(stringr)
 library(shiny)
+library(tidyverse)
 
 uu_color <- " #ffcd00"
 
