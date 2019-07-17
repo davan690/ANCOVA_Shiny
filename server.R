@@ -54,8 +54,8 @@ server <- function(input, output, session) {
   set.seed(1321)
   anco_dat_x_1     <- as.numeric(scale(rnorm(n_ancova/2)))
   anco_dat_x_2     <- as.numeric(scale(rnorm(n_ancova/2)))
-  anco_dat_resid_1 <- as.numeric(scale(rnorm(n_ancova/2)))
-  anco_dat_resid_2 <- as.numeric(scale(rnorm(n_ancova/2)))
+  anco_dat_resid_1 <- as.numeric(rnorm(n = n_ancova/2, mean = 0, sd = 0.001))
+  anco_dat_resid_2 <- as.numeric(rnorm(n = n_ancova/2, mean = 0, sd = 0.001))
   
   # restructuring for dynamic ecology tests
   
