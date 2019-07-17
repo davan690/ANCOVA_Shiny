@@ -57,6 +57,20 @@ server <- function(input, output, session) {
   # change this to ticks dataset
   #For now I have manually added it
   #Will add info from here
+  # March 2019
+  
+  # selected group
+  # reduce to low abundance only data only
+  low <- c(10,11,12,13,14,15) 
+  
+  #read in abundance data
+  # source("./Davidson_2019_Data_wrangling.R", echo = FALSE)
+  plot.dat.all1 <- read_csv("./data/plot-all-data1.csv")
+  # head(abund.dat5)
+  low.abund.dat <- plot.dat.all1 %>% 
+    # mutate(N = mean.lam) %>%  # for when using out.N
+    filter(trip == 10 | trip == 11 | trip == 12 | trip == 13 | trip == 14 | trip == 15)
+  # filter(low.abund.dat, trip.no == 15)$true.date
   
   n_ancova   <- 100
   anco_endpt <- c(1, 2, 2, 1.5)
