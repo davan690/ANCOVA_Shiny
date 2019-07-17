@@ -35,17 +35,28 @@ server <- function(input, output, session) {
 
 
 ####### ANALYSIS SCRIPT HERE##################
+  
+  # orginal code
+  # ANOVA DATA
+  # aov_dat <- data.frame(cbind(Condition = rep(c("Treatment", "Control"), 2),
+  #                         Gender = rep(c("Female", "Male"), each = 2)),
+  #                   cbind(Mean = c(3, 2, 2, 3)))
+  # rownames(aov_dat) <- paste0("Group_", 1:nrow(aov_dat))
+  # changed_aov_dat <- aov_dat
+
   # ANOVA DATA
   aov_dat <- data.frame(cbind(Condition = rep(c("Treatment", "Control"), 2),
-                          Gender = rep(c("Female", "Male"), each = 2)),
-                    cbind(Mean = c(3, 2, 2, 3)))
+                              Gender = rep(c("Female", "Male"), each = 2)),
+                        cbind(Mean = c(3, 2, 2, 3)))
   rownames(aov_dat) <- paste0("Group_", 1:nrow(aov_dat))
   changed_aov_dat <- aov_dat
-
+  
 
   # ANCOVA DATA
   # this is generating random dataset??...
   # change this to ticks dataset
+  #For now I have manually added it
+  #Will add info from here
   
   n_ancova   <- 100
   anco_endpt <- c(1, 2, 2, 1.5)
@@ -59,7 +70,7 @@ server <- function(input, output, session) {
   
   # restructuring for dynamic ecology tests
   
-
+  # orginal code
   # n_ancova   <- 100
   # anco_endpt <- c(1, 2, 2, 1.5)
   # ancoef     <- c(1, -.5)
